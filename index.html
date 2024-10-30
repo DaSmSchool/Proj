@@ -9,13 +9,99 @@
 </head>
 <body>
     
-    <section class="main-view">
+    <header id="site-header">
+        Code Breaker
+    </header>
 
-    </section>
+    <div id="game-content">
 
-    <section class="main-view">
+        <section id="settings-window" class="view-window">
+            <div class="settings-section" id="properties-view">
+                <div class="property-option">
+                    <div class="property-descriptor">
+                        Clock Starting Value
+                    </div>
+                    <div class="property-setter">
 
-    </section>
+                    </div>
+                </div>
+                <div class="property-option">
+                    <div class="property-descriptor">
+                        Good Random Event Chance
+                    </div>
+                    <div class="property-setter">
+
+                    </div>
+                </div>
+                <div class="property-option">
+                    <div class="property-descriptor">
+                        Bad Random Event Chance
+                    </div>
+                    <div class="property-setter">
+
+                    </div>
+                </div>
+            </div>
+            <div class="settings-section" id="statistics-view">
+                <div class="statistic-listing">
+                    <div class="statistic-descriptor">
+                        Games Played
+                    </div>
+                    <div class="statistic-values">
+
+                    </div>
+                </div>
+                <div class="statistic-listing">
+                    <div class="statistic-descriptor">
+                        Games Won
+                    </div>
+                    <div class="statistic-values">
+
+                    </div>
+                </div>
+                <div class="statistic-listing">
+                    <div class="statistic-descriptor">
+                        Games Lost
+                    </div>
+                    <div class="statistic-values">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="game-window" class="view-window">
+            <div id="game-clock">
+                <p id="clock-text">TIME REMAINING:</p>
+                <p id="time-remaining">7</p>
+            </div>
+            <div id="game-input-output">
+                <div id="display-output-group">
+                    <div class="outputDisp" id="output1">
+                        _
+                    </div>
+                    <div class="outputDisp" id="output2">
+                        _
+                    </div>
+                    <div class="outputDisp" id="output3">
+                        _
+                    </div>
+                </div>
+                <div id="input-button-group">
+                    <button class="inputBtn" id="input1">
+                        1
+                    </button>
+                    <button class="inputBtn" id="input2">
+                        2
+                    </button>
+                    <button class="inputBtn" id="input3">
+                        3
+                    </button>
+                </div>
+                <button id="clearBtn"></button>
+            </div>
+        </section>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
