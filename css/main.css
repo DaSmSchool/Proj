@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    flex-direction: row;
+    background-color: "#DDDDDD";
+}
+
+main-view {
+    margin: 4sp;
+    border-radius: 10sp;
+}
