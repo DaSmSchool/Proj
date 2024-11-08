@@ -1,7 +1,15 @@
 const outputs = [0, 0, 0]
+const correctCombo = []
 
 function init() {
+    generateCombo()
+}
 
+function generateCombo() {
+    for (let i = 0; i < 3; i++) {
+        numPick = Math.floor(Math.random() * 3) + 1
+        correctCombo.push(numPick)
+    }
 }
 
 function updateOutput() {
