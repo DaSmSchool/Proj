@@ -1,4 +1,3 @@
-
 const outputs = [0, 0, 0]
 
 function init() {
@@ -7,7 +6,9 @@ function init() {
 
 function updateOutput() {
     for (let i=0; i < outputs.length; i++) {
-        $("output" + i).text(outputs[i])
+        let printStr = outputs[i]
+        if (printStr == 0) printStr = "_"
+        $("#output" + (i+1)).text(printStr)
     }
 }
 
