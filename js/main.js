@@ -3,7 +3,17 @@ const correctCombo = []
 var timeRemaining = 7
 
 function init() {
+    initGame()
+}
+
+function initGame() {
+    initConsole()
     generateCombo()
+}
+
+function initConsole() {
+    $("#display-console-text").text("> Enter your combination. ")
+    $("#display-console-guesses").text("> You have " + timeRemaining + " guess(es) remaining.")
 }
 
 function generateCombo() {
@@ -23,6 +33,27 @@ function updateOutput() {
 
 function updateTime() {
     $("#time-remaining").text(timeRemaining)
+}
+
+function updateConsole() {
+    $("#display-console-text").text("> " + inputStr() + ": ")
+    $("#display-console-guesses").text("> You have " + timeRemaining + " guess(es) remaining.")
+}
+
+function inputStr(truncated) {
+    let assemble = ""
+    let digitStart = false
+
+    for (let i = inputs.length-1; i >= 0; i--) {
+        if (inputs[i] != 0 && !digitStart) {
+            digitStart = true
+        }
+        if (digitStart) {
+            assemble = inputs[i] + assemble
+        }
+    }
+
+    return assemble
 }
 
 function addNum(num) {
@@ -45,12 +76,13 @@ function wrongGuess() {
     clearInput()
     timeRemaining -= 1
     updateTime()
+    updateConsole()
 
     if (timeRemaining <= 0) gameLost()
 }
 
 function guessTooLow() {
-
+    $("#display-console-text").text("> Enter your combination. ")
 }
 
 function guessTooHigh() {

@@ -49,10 +49,18 @@ body {
     justify-items: center
 }
 
-#display-console {
+.console {
     background-color: #111111;
     color: rgb(0, 255, 0);
     width: 75%;
+}
+
+#display-console-text {
+    
+}
+
+#display-console-guesses {
+    
 }
 
 #display-output-group {
