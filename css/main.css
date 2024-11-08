@@ -49,6 +49,12 @@ body {
     justify-items: center
 }
 
+#display-console {
+    background-color: #111111;
+    color: rgb(0, 255, 0);
+    width: 75%;
+}
+
 #display-output-group {
     display: flex;
     flex: 1;
