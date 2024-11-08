@@ -1,4 +1,4 @@
-const outputs = [0, 0, 0]
+const inputs = [0, 0, 0]
 const correctCombo = []
 
 function init() {
@@ -13,27 +13,77 @@ function generateCombo() {
 }
 
 function updateOutput() {
-    for (let i=0; i < outputs.length; i++) {
-        let printStr = outputs[i]
+    for (let i=0; i < inputs.length; i++) {
+        let printStr = inputs[i]
         if (printStr == 0) printStr = "_"
         $("#output" + (i+1)).text(printStr)
     }
 }
 
 function addNum(num) {
-    if (outputs[outputs.length-1]) return
+    if (inputs[inputs.length-1]) return
     
-    for (let i=0; i < outputs.length; i++) {
-        if (outputs[i] == 0) {
-            outputs[i] = num
+    for (let i=0; i < inputs.length; i++) {
+        if (inputs[i] == 0) {
+            inputs[i] = num
             updateOutput()
             break
         }
     }
 }
 
+function correctGuess() {
+
+}
+
+function wrongGuess() {
+
+}
+
+function indivWrongOutcome(correctNumber, guessedNumber) {
+    if (correctNumber < guessedNumber) {
+        guessTooHigh()
+    } else if (correctNumber > guessedNumber) {
+        guessTooLow()
+    }
+}
+
+function makeGuess() {
+    let guessCorrect = true
+    for (let i = 0; i < 3; i++) {
+        if (inputs[i] != correctCombo[i]) {
+            guessCorrect = false
+            indivWrongOutcome(correctCombo[i], inputs[i])
+        }
+    }
+
+    if (guessCorrect) {
+        correctGuess()
+    } else {
+        wrongGuess()
+    }
+}
+
+function postInput() {
+    if (inputs[inputs.length-1] != 0) {
+        makeGuess()
+    }
+}
+
+function clearInput() {
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i] = 0
+    }
+    updateOutput()
+}
+
 function inpClicked(inpInd) {
     addNum(inpInd)
+}
+
+function clearClicked() {
+    clearInput()
+    postInput()
 }
 
 init()
