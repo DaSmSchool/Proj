@@ -1,6 +1,6 @@
 const inputs = [0, 0, 0]
 const correctCombo = []
-const timeRemaining = 7
+var timeRemaining = 7
 
 function init() {
     generateCombo()
@@ -43,11 +43,18 @@ function correctGuess() {
 
 function wrongGuess() {
     clearInput()
-    inputs = [0, 0, 0]
     timeRemaining -= 1
     updateTime()
 
     if (timeRemaining <= 0) gameLost()
+}
+
+function guessTooLow() {
+
+}
+
+function guessTooHigh() {
+
 }
 
 function indivWrongOutcome(correctNumber, guessedNumber) {
