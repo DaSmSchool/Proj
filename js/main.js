@@ -1,5 +1,6 @@
 const inputs = [0, 0, 0]
 const correctCombo = []
+const timeRemaining = 7
 
 function init() {
     generateCombo()
@@ -20,6 +21,10 @@ function updateOutput() {
     }
 }
 
+function updateTime() {
+    $("#time-remaining").text(timeRemaining)
+}
+
 function addNum(num) {
     if (inputs[inputs.length-1]) return
     
@@ -37,7 +42,12 @@ function correctGuess() {
 }
 
 function wrongGuess() {
+    clearInput()
+    inputs = [0, 0, 0]
+    timeRemaining -= 1
+    updateTime()
 
+    if (timeRemaining <= 0) gameLost()
 }
 
 function indivWrongOutcome(correctNumber, guessedNumber) {
@@ -46,6 +56,10 @@ function indivWrongOutcome(correctNumber, guessedNumber) {
     } else if (correctNumber > guessedNumber) {
         guessTooLow()
     }
+}
+
+function gameLost() {
+
 }
 
 function makeGuess() {
