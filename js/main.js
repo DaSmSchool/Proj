@@ -93,11 +93,11 @@ function clearInput() {
 
 function inpClicked(inpInd) {
     addNum(inpInd)
+    postInput()
 }
 
 function clearClicked() {
     clearInput()
-    postInput()
 }
 
 init()
