@@ -1,5 +1,5 @@
-const inputs = [0, 0, 0]
-const correctCombo = []
+inputs = [0, 0, 0]
+correctCombo = []
 var timeRemaining = 7
 
 function init() {
@@ -7,8 +7,11 @@ function init() {
 }
 
 function initGame() {
+    timeRemaining = 7
+    inputs = [0, 0, 0]
     initConsole()
     generateCombo()
+    updateOutput()
 }
 
 function initConsole() {
@@ -17,6 +20,7 @@ function initConsole() {
 }
 
 function generateCombo() {
+    correctCombo = []
     for (let i = 0; i < 3; i++) {
         numPick = Math.floor(Math.random() * 3) + 1
         correctCombo.push(numPick)
@@ -36,21 +40,14 @@ function updateTime() {
 }
 
 function updateConsole() {
-    $("#display-console-text").text("> " + inputStr() + ": ")
     $("#display-console-guesses").text("> You have " + timeRemaining + " guess(es) remaining.")
 }
 
 function inputStr(truncated) {
     let assemble = ""
-    let digitStart = false
 
-    for (let i = inputs.length-1; i >= 0; i--) {
-        if (inputs[i] != 0 && !digitStart) {
-            digitStart = true
-        }
-        if (digitStart) {
-            assemble = inputs[i] + assemble
-        }
+    for (let i = 0; i < inputs.length; i++) {
+        assemble += inputs[i]
     }
 
     return assemble
@@ -69,7 +66,8 @@ function addNum(num) {
 }
 
 function correctGuess() {
-
+    $("#display-console-text").text("> You broke in and won!")
+    $("#display-console-guesses").text("> Wanna play again? press restart!")
 }
 
 function wrongGuess() {
@@ -82,11 +80,11 @@ function wrongGuess() {
 }
 
 function guessTooLow() {
-    $("#display-console-text").text("> Enter your combination. ")
+    $("#display-console-text").text("> " + inputStr() + ": Guess too low!")
 }
 
 function guessTooHigh() {
-
+    $("#display-console-text").text("> " + inputStr() + ": Guess too high!")
 }
 
 function indivWrongOutcome(correctNumber, guessedNumber) {
@@ -98,7 +96,7 @@ function indivWrongOutcome(correctNumber, guessedNumber) {
 }
 
 function gameLost() {
-
+    $("#display-console-text").text("> You lost! The police got you!")
 }
 
 function makeGuess() {
@@ -107,6 +105,7 @@ function makeGuess() {
         if (inputs[i] != correctCombo[i]) {
             guessCorrect = false
             indivWrongOutcome(correctCombo[i], inputs[i])
+            break
         }
     }
 
@@ -137,6 +136,10 @@ function inpClicked(inpInd) {
 
 function clearClicked() {
     clearInput()
+}
+
+function restartClicked() {
+    initGame()
 }
 
 init()

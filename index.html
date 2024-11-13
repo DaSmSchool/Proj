@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <title>Document</title>
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+    </style>
+
+    <title>Code Breaker</title>
 </head>
 <body>
     
@@ -15,66 +20,7 @@
 
     <div id="game-content">
 
-        <section id="settings-window" class="view-window">
-            <div class="settings-section" id="properties-view">
-                <div class="property-option">
-                    <div class="property-descriptor">
-                        Clock Starting Value
-                    </div>
-                    <div class="property-setter">
-
-                    </div>
-                </div>
-                <div class="property-option">
-                    <div class="property-descriptor">
-                        Good Random Event Chance
-                    </div>
-                    <div class="property-setter">
-
-                    </div>
-                </div>
-                <div class="property-option">
-                    <div class="property-descriptor">
-                        Bad Random Event Chance
-                    </div>
-                    <div class="property-setter">
-
-                    </div>
-                </div>
-            </div>
-            <div class="settings-section" id="statistics-view">
-                <div class="statistic-listing">
-                    <div class="statistic-descriptor">
-                        Games Played
-                    </div>
-                    <div class="statistic-values">
-
-                    </div>
-                </div>
-                <div class="statistic-listing">
-                    <div class="statistic-descriptor">
-                        Games Won
-                    </div>
-                    <div class="statistic-values">
-
-                    </div>
-                </div>
-                <div class="statistic-listing">
-                    <div class="statistic-descriptor">
-                        Games Lost
-                    </div>
-                    <div class="statistic-values">
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="game-window" class="view-window">
-            <div id="game-clock">
-                <p id="clock-text">TIME REMAINING:</p>
-                <p id="time-remaining">7</p>
-            </div>
             <div id="game-input-output">
                 <div id="display-console-text" class="console">&nbsp;</div>
                 <div id="display-console-guesses" class="console"></div>
@@ -100,7 +46,8 @@
                         3
                     </button>
                 </div>
-                <button id="clearBtn" onclick="clearClicked()">CLEAR</button>
+                <button id="clearBtn" class="state-btn" onclick="clearClicked()">CLEAR</button>
+                <button id="restartBtn" class="state-btn" onclick="restartClicked()">RESTART</button>
             </div>
         </section>
     </div>
