@@ -112,6 +112,10 @@ body {
     font-size: x-large;
 }
 
+.game-stat {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #clearBtn {
     
 }
